@@ -58,7 +58,7 @@ export default function CategoryBooks({ category }: { category: Category }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {displayBooks.map((book: Product) => (
           <Card key={book.id} className="overflow-hidden">
-            <Link href={`/books/${book.id}`}>
+            <Link href={`kitabghor/books//${book.id}`}>
               <div className="relative h-64 w-full">
                 <Image
                   src={book.image}
@@ -69,7 +69,7 @@ export default function CategoryBooks({ category }: { category: Category }) {
               </div>
             </Link>
             <CardContent className="p-4">
-              <Link href={`/books/${book.id}`}>
+              <Link href={`kitabghor/books//${book.id}`}>
                 <h4 className="font-semibold text-lg mb-1 hover:text-primary transition-colors line-clamp-2">
                   {book.name}
                 </h4>

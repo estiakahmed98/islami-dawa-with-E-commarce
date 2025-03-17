@@ -12,7 +12,7 @@ const heroData = [
     title: "আপনার পছন্দের বই খুঁজুন",
     description: "হাজার হাজার বইয়ের মধ্যে থেকে আপনার পছন্দের বইটি খুঁজে নিন",
     buttonText: "এখনই দেখুন",
-    buttonLink: "/books",
+    buttonLink: "kitabghor/books/",
   },
   {
     id: 2,

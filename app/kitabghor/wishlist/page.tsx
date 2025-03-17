@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Trash2, ShoppingCart } from "lucide-react"
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Trash2, ShoppingCart } from "lucide-react";
 
 // Sample wishlist items for demo
 const initialWishlistItems = [
@@ -36,14 +36,14 @@ const initialWishlistItems = [
     discount: 19,
     image: "/placeholder.svg?height=200&width=150",
   },
-]
+];
 
 export default function WishlistPage() {
-  const [wishlistItems, setWishlistItems] = useState(initialWishlistItems)
+  const [wishlistItems, setWishlistItems] = useState(initialWishlistItems);
 
   const removeItem = (id) => {
-    setWishlistItems(wishlistItems.filter((item) => item.id !== id))
-  }
+    setWishlistItems(wishlistItems.filter((item) => item.id !== id));
+  };
 
   return (
     <div className="container mx-auto py-12 px-4">
@@ -52,8 +52,10 @@ export default function WishlistPage() {
       {wishlistItems.length === 0 ? (
         <div className="text-center py-12">
           <h2 className="text-2xl font-semibold mb-4">আপনার উইশলিস্ট খালি</h2>
-          <p className="text-muted-foreground mb-6">আপনার উইশলিস্টে কোন পণ্য নেই। পছন্দের বই যোগ করতে শপিং চালিয়ে যান।</p>
-          <Link href="/books">
+          <p className="text-muted-foreground mb-6">
+            আপনার উইশলিস্টে কোন পণ্য নেই। পছন্দের বই যোগ করতে শপিং চালিয়ে যান।
+          </p>
+          <Link href="kitabghor/books/">
             <Button>শপিং চালিয়ে যান</Button>
           </Link>
         </div>
@@ -62,7 +64,7 @@ export default function WishlistPage() {
           {wishlistItems.map((item) => (
             <Card key={item.id} className="overflow-hidden">
               <div className="relative">
-                <Link href={`/books/${item.productId}`}>
+                <Link href={`kitabghor/books//${item.productId}`}>
                   <div className="relative h-64 w-full">
                     <Image
                       src={item.image || "/placeholder.svg"}
@@ -80,7 +82,7 @@ export default function WishlistPage() {
                 </button>
               </div>
               <CardContent className="p-4">
-                <Link href={`/books/${item.productId}`}>
+                <Link href={`kitabghor/books//${item.productId}`}>
                   <h4 className="font-semibold text-lg mb-1 hover:text-primary transition-colors line-clamp-2">
                     {item.name}
                   </h4>
@@ -89,11 +91,15 @@ export default function WishlistPage() {
                   <div>
                     <span className="font-bold text-lg">৳{item.price}</span>
                     {item.discount > 0 && (
-                      <span className="text-sm text-muted-foreground line-through ml-2">৳{item.original_price}</span>
+                      <span className="text-sm text-muted-foreground line-through ml-2">
+                        ৳{item.original_price}
+                      </span>
                     )}
                   </div>
                   {item.discount > 0 && (
-                    <span className="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs">{item.discount}% ছাড়</span>
+                    <span className="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs">
+                      {item.discount}% ছাড়
+                    </span>
                   )}
                 </div>
                 <Button className="w-full">
@@ -106,6 +112,5 @@ export default function WishlistPage() {
         </div>
       )}
     </div>
-  )
+  );
 }
-

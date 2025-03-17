@@ -58,7 +58,7 @@ export default function BookDetail() {
         <div className="relative">
           <div className="relative h-[500px] w-full rounded-lg overflow-hidden">
             <Image
-              src={"/placeholder.svg?height=600&width=400"}
+              src={book.image}
               alt={book.name}
               fill
               className="object-cover"

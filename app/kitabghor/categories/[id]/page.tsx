@@ -44,7 +44,7 @@ export default function CategoryPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {categoryBooks.map((book) => (
           <Card key={book.id} className="overflow-hidden">
-            <Link href={`/books/${book.id}`}>
+            <Link href={`/kitabghorkitabghor/books//${book.id}`}>
               <div className="relative h-64 w-full">
                 <Image
                   src={"/placeholder.svg?height=400&width=300"}
@@ -55,7 +55,7 @@ export default function CategoryPage() {
               </div>
             </Link>
             <CardContent className="p-4">
-              <Link href={`/books/${book.id}`}>
+              <Link href={`kitabghorkitabghor/books//${book.id}`}>
                 <h4 className="font-semibold text-lg mb-1 hover:text-primary transition-colors line-clamp-2">
                   {book.name}
                 </h4>

@@ -27,7 +27,7 @@ import {
 
 const sidebarItems = [
   { title: "Dashboard", href: "/kitabghor/dashboard", icon: LayoutDashboard },
-  { title: "Books", href: "/kitabghor/books", icon: BookOpen },
+  { title: "Books", href: "/kitabghorkitabghor/books/", icon: BookOpen },
   { title: "Categories", href: "/kitabghor/categories", icon: BookOpen },
   { title: "Orders", href: "/kitabghor/orders", icon: ShoppingCart },
   { title: "Customers", href: "/kitabghor/customers", icon: Users },

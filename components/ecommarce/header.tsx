@@ -14,7 +14,7 @@ export default function Header() {
 
   const navItems = [
     { name: "হোম", href: "/" },
-    { name: "সকল বইসমূহ", href: "/books" },
+    { name: "সকল বইসমূহ", href: "kitabghor/books/" },
     { name: "বিষয়সমূহ", href: "/categories" },
     { name: "লেখক", href: "/authors" },
     { name: "প্রকাশক", href: "/publishers" },
