@@ -12,7 +12,7 @@ export default function RelatedBooks({ books }) {
             <Link href={`kitabghor/books//${book.id}`}>
               <div className="relative h-48 w-full">
                 <Image
-                  src={"/placeholder.svg?height=300&width=200"}
+                  src={book.image}
                   alt={book.name}
                   fill
                   className="object-cover transition-transform hover:scale-105"
