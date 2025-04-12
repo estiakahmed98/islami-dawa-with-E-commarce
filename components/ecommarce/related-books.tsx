@@ -2,14 +2,30 @@ import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 
-export default function RelatedBooks({ books }) {
+interface Book {
+  id: string | number;
+  name: string;
+  image: string;
+  price: number;
+  original_price: number;
+  discount: number;
+  writer: {
+    name: string;
+  };
+}
+
+interface RelatedBooksProps {
+  books: Book[];
+}
+
+export default function RelatedBooks({ books }: RelatedBooksProps) {
   return (
     <div>
       <h3 className="text-xl font-bold mb-4">সম্পর্কিত বই</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {books.map((book) => (
           <Card key={book.id} className="overflow-hidden">
-            <Link href={`kitabghor/books//${book.id}`}>
+            <Link href={`/kitabghor/books/${book.id}`}>
               <div className="relative h-48 w-full">
                 <Image
                   src={book.image}
@@ -20,7 +36,7 @@ export default function RelatedBooks({ books }) {
               </div>
             </Link>
             <CardContent className="p-4">
-              <Link href={`kitabghor/books//${book.id}`}>
+              <Link href={`/kitabghor/books/${book.id}`}>
                 <h4 className="font-semibold text-lg mb-1 hover:text-primary transition-colors line-clamp-2">
                   {book.name}
                 </h4>

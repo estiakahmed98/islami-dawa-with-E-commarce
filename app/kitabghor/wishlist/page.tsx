@@ -49,7 +49,14 @@ export default function WishlistPage() {
 
   return (
     <div className="container mx-auto py-12 px-4">
-      <h1 className="text-3xl font-bold mb-8">আপনার উইশলিস্ট</h1>
+      <h1 className="text-3xl font-bold mb-8 flex items-center gap-2">
+        <img
+          src="/assets/others/wishlist.png"
+          alt="Wishlist Icon"
+          className="h-8 w-8"
+        />
+        আপনার উইশলিস্ট
+      </h1>
 
       {wishlistProducts.length === 0 ? (
         <div className="text-center py-12">
@@ -57,7 +64,7 @@ export default function WishlistPage() {
           <p className="text-muted-foreground mb-6">
             আপনার উইশলিস্টে কোন পণ্য নেই। পছন্দের বই যোগ করতে শপিং চালিয়ে যান।
           </p>
-          <Link href="/books">
+          <Link href="/">
             <Button>শপিং চালিয়ে যান</Button>
           </Link>
         </div>
@@ -66,7 +73,7 @@ export default function WishlistPage() {
           {wishlistProducts.map((item) => (
             <Card key={item.id} className="overflow-hidden">
               <div className="relative">
-                <Link href={`/books/${item.id}`}>
+                <Link href={`/kitabghor/books/${item.id}`}>
                   <div className="relative h-64 w-full">
                     <Image
                       src={item.image || "/placeholder.svg"}
@@ -84,7 +91,7 @@ export default function WishlistPage() {
                 </button>
               </div>
               <CardContent className="p-4">
-                <Link href={`/books/${item.id}`}>
+                <Link href={`/kitabghor/books/${item.id}`}>
                   <h4 className="font-semibold text-lg mb-1 hover:text-primary transition-colors line-clamp-2">
                     {item.name}
                   </h4>

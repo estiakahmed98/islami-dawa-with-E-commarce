@@ -1,60 +1,41 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Heart } from "lucide-react";
-import { products, categories } from "@/public/BookData";
+import { Heart, ShoppingCart } from "lucide-react";
+import { products } from "@/public/BookData";
 import { useCart } from "@/components/ecommarce/CartContext";
+import { useWishlist } from "@/components/ecommarce/WishlistContext";
+import { toast } from "sonner";
 
-interface CategoryPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function CategoryPage({ params }: CategoryPageProps) {
+export default function AllBooksPage() {
   const { addToCart } = useCart();
-  const categoryId = Number.parseInt(params.id);
-  const category = categories.find((cat) => cat.id === categoryId);
-  const [wishlist, setWishlist] = useState<number[]>([]);
+  const { wishlistItems, addToWishlist, removeFromWishlist, isInWishlist } =
+    useWishlist();
 
-  const categoryBooks = products.filter(
-    (product) => product.category.id === categoryId
-  );
-
-  const toggleWishlist = (productId: number) => {
-    if (wishlist.includes(productId)) {
-      setWishlist(wishlist.filter((id) => id !== productId));
+  const handleToggleWishlist = (bookId: number) => {
+    if (isInWishlist(bookId)) {
+      removeFromWishlist(bookId);
+      toast.success("উইশলিস্ট থেকে সরানো হয়েছে");
     } else {
-      setWishlist([...wishlist, productId]);
+      addToWishlist(bookId);
+      toast.success("উইশলিস্টে যোগ করা হয়েছে");
     }
   };
 
-  if (!category) {
-    return (
-      <div className="container mx-auto py-12 px-4">বিভাগ পাওয়া যায়নি</div>
-    );
-  }
-
   return (
     <div className="container mx-auto py-12 px-4">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">{category.name}</h1>
-        <p className="text-muted-foreground">
-          মোট {categoryBooks.length} টি বই পাওয়া গেছে
-        </p>
-      </div>
-
+      <h1 className="text-3xl font-bold mb-8">সকল বই</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {categoryBooks.map((book) => (
+        {products.map((book) => (
           <Card key={book.id} className="overflow-hidden">
             <Link href={`/kitabghor/books/${book.id}`}>
               <div className="relative h-64 w-full">
                 <Image
-                  src={book.image || "/placeholder.svg?height=400&width=300"}
+                  src={book.image || "/placeholder.svg"}
                   alt={book.name}
                   fill
                   className="object-cover transition-transform hover:scale-105"
@@ -62,7 +43,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
               </div>
             </Link>
             <CardContent className="p-4">
-              <Link href={`/kitabghorkitabghor/books/${book.id}`}>
+              <Link href={`/kitabghor/books/${book.id}`}>
                 <h4 className="font-semibold text-lg mb-1 hover:text-primary transition-colors line-clamp-2">
                   {book.name}
                 </h4>
@@ -80,22 +61,19 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                   )}
                 </div>
                 <button
-                  onClick={() => toggleWishlist(book.id)}
+                  onClick={() => handleToggleWishlist(book.id)}
                   className="text-gray-500 hover:text-red-500 transition-colors"
-                  aria-label="Add to wishlist"
+                  aria-label="Toggle wishlist"
                 >
                   <Heart
-                    className={`h-5 w-5 ${wishlist.includes(book.id) ? "fill-red-500 text-red-500" : ""}`}
+                    className={`h-5 w-5 ${isInWishlist(book.id) ? "fill-red-500 text-red-500" : ""}`}
                   />
                 </button>
               </div>
             </CardContent>
             <CardFooter className="p-4 pt-0">
-              <Button
-                className="w-full"
-                onClick={() => addToCart(book.id)}
-                aria-label="Add to cart"
-              >
+              <Button className="w-full" onClick={() => addToCart(book.id)}>
+                <ShoppingCart className="mr-2 h-4 w-4" />
                 কার্টে যোগ করুন
               </Button>
             </CardFooter>

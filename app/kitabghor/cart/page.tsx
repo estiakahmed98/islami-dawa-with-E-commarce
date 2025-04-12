@@ -8,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { toast } from "sonner";
+import { ShoppingCart } from "lucide-react";
 
 export default function CartPage() {
   const { cartItems, removeFromCart, updateQuantity, clearCart } = useCart();
@@ -37,7 +38,14 @@ export default function CartPage() {
 
   return (
     <div className="container mx-auto py-12 px-4">
-      <h1 className="text-3xl font-bold mb-8">আপনার কার্ট</h1>
+      <h1 className="text-3xl font-bold mb-8 flex items-center gap-2">
+        <img
+          src="/assets/others/cart.png"
+          alt="Cart Icon"
+          className="h-10 w-10 rounded-full"
+        />
+        আপনার কার্ট
+      </h1>
 
       {cartItems.length === 0 ? (
         <div className="text-center py-12">
@@ -83,7 +91,7 @@ export default function CartPage() {
                       <div className="flex-1">
                         <div className="flex flex-col sm:flex-row sm:justify-between">
                           <div>
-                            <Link href={`/books/${item.productId}`}>
+                            <Link href={`/kitabghor/books/${item.productId}`}>
                               <h3 className="font-medium hover:text-primary transition-colors">
                                 {item.name}
                               </h3>

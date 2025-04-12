@@ -20,6 +20,7 @@ import PdfViewer from "@/components/ecommarce/pdf-viewer";
 import RelatedBooks from "@/components/ecommarce/related-books";
 import BookReviews from "@/components/ecommarce/book-reviews";
 import { useCart } from "@/components/ecommarce/CartContext";
+import { useWishlist } from "@/components/ecommarce/WishlistContext";
 import { toast } from "sonner";
 
 interface Product {
@@ -49,14 +50,14 @@ interface Product {
 
 export default function BookDetail() {
   const params = useParams();
-  const bookId = params.id as string; // Keep as string to match URL params
+  const bookId = params.id as string;
   const book = products.find((product) => product.id.toString() === bookId);
   const { addToCart } = useCart();
+  const { isInWishlist, addToWishlist, removeFromWishlist } = useWishlist();
 
   const [showModel, setShowModel] = useState(false);
   const [showPdf, setShowPdf] = useState(false);
   const [quantity, setQuantity] = useState(1);
-  const [inWishlist, setInWishlist] = useState(false);
 
   if (!book) {
     return <div className="container mx-auto py-12 px-4">বই পাওয়া যায়নি</div>;
@@ -69,10 +70,13 @@ export default function BookDetail() {
   };
 
   const toggleWishlist = () => {
-    setInWishlist(!inWishlist);
-    toast.success(
-      inWishlist ? "উইশলিস্ট থেকে সরানো হয়েছে" : "উইশলিস্টে যোগ করা হয়েছে"
-    );
+    if (isInWishlist(book.id)) {
+      removeFromWishlist(book.id);
+      toast.success("উইশলিস্ট থেকে সরানো হয়েছে");
+    } else {
+      addToWishlist(book.id);
+      toast.success("উইশলিস্টে যোগ করা হয়েছে");
+    }
   };
 
   const handleAddToCart = () => {
@@ -221,10 +225,10 @@ export default function BookDetail() {
               <Button
                 variant="outline"
                 onClick={toggleWishlist}
-                className={inWishlist ? "text-red-500" : ""}
+                className={isInWishlist(book.id) ? "text-red-500" : ""}
               >
                 <Heart
-                  className={`h-4 w-4 ${inWishlist ? "fill-red-500" : ""}`}
+                  className={`h-4 w-4 ${isInWishlist(book.id) ? "fill-red-500" : ""}`}
                 />
               </Button>
             </div>
