@@ -22,10 +22,35 @@ import BookReviews from "@/components/ecommarce/book-reviews";
 import { useCart } from "@/components/ecommarce/CartContext";
 import { toast } from "sonner";
 
+interface Product {
+  id: string | number;
+  name: string;
+  category: {
+    id: string | number;
+    name: string;
+  };
+  price: number;
+  original_price: number;
+  discount: number;
+  writer: {
+    id: string | number;
+    name: string;
+  };
+  publisher: {
+    id: string | number;
+    name: string;
+  };
+  image: string;
+  description: string;
+  stock: number;
+  modelUrl?: string;
+  pdf?: string;
+}
+
 export default function BookDetail() {
   const params = useParams();
-  const bookId = Number.parseInt(params.id as string);
-  const book = products.find((product) => product.id === bookId);
+  const bookId = params.id as string; // Keep as string to match URL params
+  const book = products.find((product) => product.id.toString() === bookId);
   const { addToCart } = useCart();
 
   const [showModel, setShowModel] = useState(false);
@@ -223,7 +248,7 @@ export default function BookDetail() {
           </div>
         </TabsContent>
         <TabsContent value="reviews" className="mt-6">
-          <BookReviews bookId={book.id} />
+          <BookReviews bookId={bookId} />
         </TabsContent>
         <TabsContent value="related" className="mt-6">
           <RelatedBooks books={relatedBooks} />

@@ -58,7 +58,7 @@ export default function CartPage() {
                   <h2 className="text-xl font-semibold">কার্ট আইটেম</h2>
                   <Button
                     variant="ghost"
-                    className="text-red-500 hover:text-red-700"
+                    className="text-white hover:text-gray-200"
                     onClick={clearCart}
                   >
                     কার্ট খালি করুন

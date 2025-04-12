@@ -1,70 +1,72 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Trash2, ShoppingCart } from "lucide-react";
+import { useWishlist } from "@/components/ecommarce/WishlistContext";
+import { useCart } from "@/components/ecommarce/CartContext";
+import { products } from "@/public/BookData";
+import { toast } from "sonner";
 
-// Sample wishlist items for demo
-const initialWishlistItems = [
-  {
-    id: 1,
-    productId: 2,
-    name: "হিন্দু-ভাইবোনদের প্রতি ভালোবাসার পয়গাম",
-    price: 125.49,
-    original_price: 155.49,
-    discount: 19,
-    image: "/placeholder.svg?height=200&width=150",
-  },
-  {
-    id: 2,
-    productId: 7,
-    name: "বড়দিনের উপহার",
-    price: 150.49,
-    original_price: 185.49,
-    discount: 19,
-    image: "/placeholder.svg?height=200&width=150",
-  },
-  {
-    id: 3,
-    productId: 14,
-    name: "৩০ হাজার খ্রিস্টানদের গুরু যেভাবে মুবাল্লিগ",
-    price: 185.99,
-    original_price: 230.99,
-    discount: 19,
-    image: "/placeholder.svg?height=200&width=150",
-  },
-];
+interface Product {
+  id: string | number;
+  name: string;
+  price: number;
+  original_price: number;
+  discount: number;
+  image: string;
+}
 
 export default function WishlistPage() {
-  const [wishlistItems, setWishlistItems] = useState(initialWishlistItems);
+  const { wishlistItems, removeFromWishlist } = useWishlist();
+  const { addToCart } = useCart();
+  const [wishlistProducts, setWishlistProducts] = useState<Product[]>([]);
 
-  const removeItem = (id) => {
-    setWishlistItems(wishlistItems.filter((item) => item.id !== id));
+  useEffect(() => {
+    // Filter products that are in the wishlist
+    const filteredProducts = products.filter((product) =>
+      wishlistItems.includes(
+        typeof product.id === "string"
+          ? Number.parseInt(product.id as string, 10)
+          : (product.id as number)
+      )
+    );
+    setWishlistProducts(filteredProducts);
+  }, [wishlistItems]);
+
+  const handleRemoveItem = (productId: number | string) => {
+    removeFromWishlist(productId);
+    toast.success("উইশলিস্ট থেকে সরানো হয়েছে");
+  };
+
+  const handleAddToCart = (product: Product) => {
+    addToCart(product.id);
+    toast.success(`"${product.name}" কার্টে যোগ করা হয়েছে`);
   };
 
   return (
     <div className="container mx-auto py-12 px-4">
       <h1 className="text-3xl font-bold mb-8">আপনার উইশলিস্ট</h1>
 
-      {wishlistItems.length === 0 ? (
+      {wishlistProducts.length === 0 ? (
         <div className="text-center py-12">
           <h2 className="text-2xl font-semibold mb-4">আপনার উইশলিস্ট খালি</h2>
           <p className="text-muted-foreground mb-6">
             আপনার উইশলিস্টে কোন পণ্য নেই। পছন্দের বই যোগ করতে শপিং চালিয়ে যান।
           </p>
-          <Link href="kitabghor/books/">
+          <Link href="/books">
             <Button>শপিং চালিয়ে যান</Button>
           </Link>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {wishlistItems.map((item) => (
+          {wishlistProducts.map((item) => (
             <Card key={item.id} className="overflow-hidden">
               <div className="relative">
-                <Link href={`kitabghor/books//${item.productId}`}>
+                <Link href={`/books/${item.id}`}>
                   <div className="relative h-64 w-full">
                     <Image
                       src={item.image || "/placeholder.svg"}
@@ -76,13 +78,13 @@ export default function WishlistPage() {
                 </Link>
                 <button
                   className="absolute top-2 right-2 bg-white rounded-full p-1.5 shadow-md hover:bg-red-50"
-                  onClick={() => removeItem(item.id)}
+                  onClick={() => handleRemoveItem(item.id)}
                 >
                   <Trash2 className="h-4 w-4 text-red-500" />
                 </button>
               </div>
               <CardContent className="p-4">
-                <Link href={`kitabghor/books//${item.productId}`}>
+                <Link href={`/books/${item.id}`}>
                   <h4 className="font-semibold text-lg mb-1 hover:text-primary transition-colors line-clamp-2">
                     {item.name}
                   </h4>
@@ -102,7 +104,10 @@ export default function WishlistPage() {
                     </span>
                   )}
                 </div>
-                <Button className="w-full">
+                <Button
+                  className="w-full"
+                  onClick={() => handleAddToCart(item)}
+                >
                   <ShoppingCart className="h-4 w-4 mr-2" />
                   কার্টে যোগ করুন
                 </Button>
