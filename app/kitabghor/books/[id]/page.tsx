@@ -19,11 +19,14 @@ import BookModel from "@/components/ecommarce/book-model";
 import PdfViewer from "@/components/ecommarce/pdf-viewer";
 import RelatedBooks from "@/components/ecommarce/related-books";
 import BookReviews from "@/components/ecommarce/book-reviews";
+import { useCart } from "@/components/ecommarce/CartContext";
+import { toast } from "sonner";
 
 export default function BookDetail() {
   const params = useParams();
   const bookId = Number.parseInt(params.id as string);
   const book = products.find((product) => product.id === bookId);
+  const { addToCart } = useCart();
 
   const [showModel, setShowModel] = useState(false);
   const [showPdf, setShowPdf] = useState(false);
@@ -42,6 +45,14 @@ export default function BookDetail() {
 
   const toggleWishlist = () => {
     setInWishlist(!inWishlist);
+    toast.success(
+      inWishlist ? "উইশলিস্ট থেকে সরানো হয়েছে" : "উইশলিস্টে যোগ করা হয়েছে"
+    );
+  };
+
+  const handleAddToCart = () => {
+    addToCart(book.id, quantity);
+    toast.success(`${quantity} টি "${book.name}" কার্টে যোগ করা হয়েছে`);
   };
 
   const relatedBooks = products
@@ -54,7 +65,6 @@ export default function BookDetail() {
   return (
     <div className="container mx-auto py-12 px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        {/* Book Image */}
         <div className="relative">
           <div className="relative h-[500px] w-full rounded-lg overflow-hidden">
             <Image
@@ -84,7 +94,6 @@ export default function BookDetail() {
           </div>
         </div>
 
-        {/* Book Details */}
         <div>
           <div className="mb-6">
             <Link
@@ -180,7 +189,7 @@ export default function BookDetail() {
             </div>
 
             <div className="flex space-x-4">
-              <Button className="flex-1">
+              <Button className="flex-1" onClick={handleAddToCart}>
                 <ShoppingCart className="mr-2 h-4 w-4" />
                 কার্টে যোগ করুন
               </Button>
@@ -198,7 +207,6 @@ export default function BookDetail() {
         </div>
       </div>
 
-      {/* Tabs for Description, Reviews, etc. */}
       <Tabs defaultValue="description" className="mb-12">
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="description">বিস্তারিত বিবরণ</TabsTrigger>
@@ -222,7 +230,6 @@ export default function BookDetail() {
         </TabsContent>
       </Tabs>
 
-      {/* 3D Model Viewer Modal */}
       {showModel && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg w-full max-w-4xl h-[80vh] overflow-hidden">
@@ -243,7 +250,6 @@ export default function BookDetail() {
         </div>
       )}
 
-      {/* PDF Viewer Modal */}
       {showPdf && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg w-full max-w-4xl h-[80vh] overflow-hidden">

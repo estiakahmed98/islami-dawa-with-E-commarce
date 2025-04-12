@@ -6,7 +6,9 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { products } from "@/public/BookData";
-import { Heart } from "lucide-react";
+import { Heart, ShoppingCart } from "lucide-react";
+import { useCart } from "@/components/ecommarce/CartContext";
+import { toast } from "sonner";
 
 interface Category {
   id: string | number;
@@ -25,23 +27,26 @@ interface Product {
 }
 
 export default function CategoryBooks({ category }: { category: Category }) {
-  const [wishlist, setWishlist] = useState<(string | number)[]>([]); // Fixing the type of wishlist
+  const [wishlist, setWishlist] = useState<(string | number)[]>([]);
+  const { addToCart } = useCart();
 
-  // Filter products based on the category
   const categoryBooks = products.filter(
     (product: Product) => product.category.id === category.id
   );
 
-  // Display only the first 8 books
   const displayBooks = categoryBooks.slice(0, 8);
 
-  // Toggle wishlist
   const toggleWishlist = (productId: string | number) => {
     if (wishlist.includes(productId)) {
       setWishlist(wishlist.filter((id) => id !== productId));
     } else {
       setWishlist([...wishlist, productId]);
     }
+  };
+
+  const handleAddToCart = (book: Product) => {
+    addToCart(book.id, 1);
+    toast.success(`"${book.name}" কার্টে যোগ করা হয়েছে`);
   };
 
   return (
@@ -97,7 +102,10 @@ export default function CategoryBooks({ category }: { category: Category }) {
               </div>
             </CardContent>
             <CardFooter className="p-4 pt-0">
-              <Button className="w-full">কার্টে যোগ করুন</Button>
+              <Button className="w-full" onClick={() => handleAddToCart(book)}>
+                <ShoppingCart className="mr-2 h-4 w-4" />
+                কার্টে যোগ করুন
+              </Button>
             </CardFooter>
           </Card>
         ))}

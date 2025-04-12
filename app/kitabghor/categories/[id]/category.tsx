@@ -7,18 +7,25 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Heart } from "lucide-react";
 import { products, categories } from "@/public/BookData";
+import { useCart } from "@/components/ecommarce/CartContext";
 
-export default function CategoryPage({ params }) {
-  const categoryId = Number.parseInt(params.id as string);
+interface CategoryPageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default function CategoryPage({ params }: CategoryPageProps) {
+  const { addToCart } = useCart();
+  const categoryId = Number.parseInt(params.id);
   const category = categories.find((cat) => cat.id === categoryId);
-  const [wishlist, setWishlist] = useState<number[]>([]); // Type as number[]
+  const [wishlist, setWishlist] = useState<number[]>([]);
 
   const categoryBooks = products.filter(
     (product) => product.category.id === categoryId
   );
 
   const toggleWishlist = (productId: number) => {
-    // Type as number
     if (wishlist.includes(productId)) {
       setWishlist(wishlist.filter((id) => id !== productId));
     } else {
@@ -44,10 +51,10 @@ export default function CategoryPage({ params }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {categoryBooks.map((book) => (
           <Card key={book.id} className="overflow-hidden">
-            <Link href={`/kitabghorkitabghor/books//${book.id}`}>
+            <Link href={`/kitabghorkitabghor/books/${book.id}`}>
               <div className="relative h-64 w-full">
                 <Image
-                  src={"/placeholder.svg?height=400&width=300"}
+                  src={book.image || "/placeholder.svg?height=400&width=300"}
                   alt={book.name}
                   fill
                   className="object-cover transition-transform hover:scale-105"
@@ -55,7 +62,7 @@ export default function CategoryPage({ params }) {
               </div>
             </Link>
             <CardContent className="p-4">
-              <Link href={`kitabghorkitabghor/books//${book.id}`}>
+              <Link href={`/kitabghorkitabghor/books/${book.id}`}>
                 <h4 className="font-semibold text-lg mb-1 hover:text-primary transition-colors line-clamp-2">
                   {book.name}
                 </h4>
@@ -75,6 +82,7 @@ export default function CategoryPage({ params }) {
                 <button
                   onClick={() => toggleWishlist(book.id)}
                   className="text-gray-500 hover:text-red-500 transition-colors"
+                  aria-label="Add to wishlist"
                 >
                   <Heart
                     className={`h-5 w-5 ${wishlist.includes(book.id) ? "fill-red-500 text-red-500" : ""}`}
@@ -83,7 +91,13 @@ export default function CategoryPage({ params }) {
               </div>
             </CardContent>
             <CardFooter className="p-4 pt-0">
-              <Button className="w-full">কার্টে যোগ করুন</Button>
+              <Button
+                className="w-full"
+                onClick={() => addToCart(book.id)}
+                aria-label="Add to cart"
+              >
+                কার্টে যোগ করুন
+              </Button>
             </CardFooter>
           </Card>
         ))}

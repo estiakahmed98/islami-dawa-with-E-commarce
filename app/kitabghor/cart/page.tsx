@@ -1,58 +1,28 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { useCart } from "@/components/ecommarce/CartContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Trash2, Plus, Minus } from "lucide-react";
-
-// Sample cart items for demo
-const initialCartItems = [
-  {
-    id: 1,
-    productId: 1,
-    name: "হিন্দু মুসলিম সংলাপ",
-    price: 120.99,
-    quantity: 1,
-    image: "/placeholder.svg?height=200&width=150",
-  },
-  {
-    id: 2,
-    productId: 5,
-    name: "খ্রিস্টান ভাই-বোনদের প্রতি ভালোবাসার বার্তা",
-    price: 140.99,
-    quantity: 2,
-    image: "/placeholder.svg?height=200&width=150",
-  },
-];
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+import { toast } from "sonner";
 
 export default function CartPage() {
-  const [cartItems, setCartItems] = useState(initialCartItems);
+  const { cartItems, removeFromCart, updateQuantity, clearCart } = useCart();
+
   const [couponCode, setCouponCode] = useState("");
   const [discount, setDiscount] = useState(0);
-
-  const updateQuantity = (id, newQuantity) => {
-    if (newQuantity < 1) return;
-
-    setCartItems(
-      cartItems.map((item) =>
-        item.id === id ? { ...item, quantity: newQuantity } : item
-      )
-    );
-  };
-
-  const removeItem = (id) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
-  };
 
   const applyCoupon = () => {
     // Demo coupon code "DISCOUNT20" for 20% off
     if (couponCode.toUpperCase() === "DISCOUNT20") {
       setDiscount(20);
+      toast.success("কুপন প্রয়োগ করা হয়েছে!");
     } else {
       setDiscount(0);
-      alert("কুপন কোড অবৈধ!");
+      toast.error("কুপন কোড অবৈধ!");
     }
   };
 
@@ -62,7 +32,7 @@ export default function CartPage() {
   );
 
   const discountAmount = (subtotal * discount) / 100;
-  const shippingCost = 60;
+  const shippingCost = 60; // Fixed shipping cost
   const total = subtotal - discountAmount + shippingCost;
 
   return (
@@ -75,7 +45,7 @@ export default function CartPage() {
           <p className="text-muted-foreground mb-6">
             আপনার কার্টে কোন পণ্য নেই। কিছু পণ্য যোগ করতে শপিং চালিয়ে যান।
           </p>
-          <Link href="kitabghor/books/">
+          <Link href="/">
             <Button>শপিং চালিয়ে যান</Button>
           </Link>
         </div>
@@ -84,7 +54,16 @@ export default function CartPage() {
           <div className="lg:col-span-2">
             <div className="bg-white rounded-lg shadow-sm border">
               <div className="p-6">
-                <h2 className="text-xl font-semibold mb-4">কার্ট আইটেম</h2>
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="text-xl font-semibold">কার্ট আইটেম</h2>
+                  <Button
+                    variant="ghost"
+                    className="text-red-500 hover:text-red-700"
+                    onClick={clearCart}
+                  >
+                    কার্ট খালি করুন
+                  </Button>
+                </div>
                 <div className="divide-y">
                   {cartItems.map((item) => (
                     <div
@@ -104,7 +83,7 @@ export default function CartPage() {
                       <div className="flex-1">
                         <div className="flex flex-col sm:flex-row sm:justify-between">
                           <div>
-                            <Link href={`kitabghor/books//${item.productId}`}>
+                            <Link href={`/books/${item.productId}`}>
                               <h3 className="font-medium hover:text-primary transition-colors">
                                 {item.name}
                               </h3>
@@ -142,7 +121,7 @@ export default function CartPage() {
                           </div>
                           <button
                             className="text-red-500 hover:text-red-700"
-                            onClick={() => removeItem(item.id)}
+                            onClick={() => removeFromCart(item.id)}
                           >
                             <Trash2 className="h-5 w-5" />
                           </button>
@@ -202,7 +181,7 @@ export default function CartPage() {
 
               <div className="mt-4">
                 <Link
-                  href="kitabghor/books/"
+                  href="/books"
                   className="text-sm text-primary hover:underline"
                 >
                   ← শপিং চালিয়ে যান
