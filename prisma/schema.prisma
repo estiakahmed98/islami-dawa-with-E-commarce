@@ -23,6 +23,7 @@ model users {
   image         String?
   createdAt     DateTime
   updatedAt     DateTime
+  address       String?
   banned        Boolean?
   banReason     String?
   banExpires    Int?

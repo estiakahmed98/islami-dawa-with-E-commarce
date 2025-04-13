@@ -186,10 +186,10 @@ const SigninForm = () => {
           )}
         </Button>
 
-        <Link href="/sign-up">
+        <Link href="/kitabghor/sign-up">
           <Button className="mt-4 w-full flex items-center justify-center gap-2 bg-white border border-gray-300 text-gray-700 hover:bg-gray-100">
             <IoMdCreate size={20} />
-            Create an Account
+            Create New Account
           </Button>
         </Link>
 
