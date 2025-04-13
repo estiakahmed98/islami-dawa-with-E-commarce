@@ -33,6 +33,7 @@ import { toast } from "sonner";
 import { authClient } from "@/lib/auth-client";
 import { FcGoogle } from "react-icons/fc";
 import { Loader2 } from "lucide-react"; // Loading Icon
+import { IoMdCreate } from "react-icons/io";
 
 const SigninForm = () => {
   const [formError, setFormError] = useState("");
@@ -185,9 +186,16 @@ const SigninForm = () => {
           )}
         </Button>
 
+        <Link href="/sign-up">
+          <Button className="mt-4 w-full flex items-center justify-center gap-2 bg-white border border-gray-300 text-gray-700 hover:bg-gray-100">
+            <IoMdCreate size={20} />
+            Create an Account
+          </Button>
+        </Link>
+
         <div className="mt-5 space-x-1 text-center text-sm">
           <Link
-            href="/auth/sign-up"
+            href="#"
             className="text-sm text-muted-foreground hover:underline"
           >
             Forgot password?
