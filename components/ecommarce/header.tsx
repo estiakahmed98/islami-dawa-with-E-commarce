@@ -25,11 +25,11 @@ export default function Header() {
   const navItems = [
     { name: "হোম", href: "/" },
     { name: "সকল বইসমূহ", href: "/kitabghor/books" },
-    { name: "বিষয়সমূহ", href: "/categories" },
-    { name: "লেখক", href: "/authors" },
-    { name: "প্রকাশক", href: "/publishers" },
-    { name: "কওমী পাঠ্য কিতাব", href: "/kowmi-books" },
-    { name: "বইমেলা 2024", href: "/book-fair-2024" },
+    { name: "বিষয়সমূহ", href: "/kitabghor/categories" },
+    { name: "লেখক", href: "/kitabghor/authors" },
+    { name: "প্রকাশক", href: "/kitabghor/publishers" },
+    { name: "কওমী পাঠ্য কিতাব", href: "/kitabghor/kowmi-books" },
+    { name: "বইমেলা 2024", href: "/kitabghor/book-fair-2024" },
   ];
 
   const totalCartItems =

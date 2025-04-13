@@ -183,15 +183,12 @@ export default function CartPage() {
                 </p>
               </div>
 
-              <Link href="/checkout">
+              <Link href="/kitabghor/checkout">
                 <Button className="w-full">চেকআউট করুন</Button>
               </Link>
 
               <div className="mt-4">
-                <Link
-                  href="/books"
-                  className="text-sm text-primary hover:underline"
-                >
+                <Link href="/" className="text-sm text-primary hover:underline">
                   ← শপিং চালিয়ে যান
                 </Link>
               </div>

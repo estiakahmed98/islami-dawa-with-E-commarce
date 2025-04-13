@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Heart, ShoppingCart } from "lucide-react";
 import { products } from "@/public/BookData";
@@ -16,6 +17,8 @@ export default function AllBooksPage() {
   const { wishlistItems, addToWishlist, removeFromWishlist, isInWishlist } =
     useWishlist();
 
+  const [searchTerm, setSearchTerm] = useState("");
+
   const handleToggleWishlist = (bookId: number) => {
     if (isInWishlist(bookId)) {
       removeFromWishlist(bookId);
@@ -26,11 +29,27 @@ export default function AllBooksPage() {
     }
   };
 
+  const filteredBooks = products.filter((book) =>
+    book.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="container mx-auto py-12 px-4">
-      <h1 className="text-3xl font-bold mb-8">সকল বই</h1>
+      <div className="mb-6 flex justify-between items-center">
+        <h1 className="text-3xl font-bold mb-8">সকল বই</h1>
+
+        <div className="mb-6 border-2 border-slate-100 rounded-md ">
+          <Input
+            type="text"
+            placeholder="বই অনুসন্ধান করুন..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {products.map((book) => (
+        {filteredBooks.map((book) => (
           <Card key={book.id} className="overflow-hidden">
             <Link href={`/kitabghor/books/${book.id}`}>
               <div className="relative h-64 w-full">
