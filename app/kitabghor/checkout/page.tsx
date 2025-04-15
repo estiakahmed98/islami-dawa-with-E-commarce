@@ -128,12 +128,19 @@ export default function CheckoutPage() {
               onChange={(e) => setMobile(e.target.value)}
             />
             <Input
-              placeholder="ইমেইল (ঐচ্ছিক)"
+              placeholder="ইমেইল"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <Input
+            <textarea
+              className="w-full h-24 p-2 border rounded"
               placeholder="সম্পূর্ণ ঠিকানা"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            />
+            <Input
+              placeholder="পাসওয়ার্ড (যদি প্রয়োজন হয়)"
+              type="password"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
             />
