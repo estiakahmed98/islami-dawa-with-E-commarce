@@ -14,7 +14,7 @@ const sampleReviews = [
     date: "১০ মার্চ, ২০২৪",
     comment:
       "অসাধারণ বই! লেখকের ভাষা এবং বিষয়বস্তু খুবই আকর্ষণীয়। আমি এই বইটি সবাইকে পড়ার পরামর্শ দিব।",
-    avatar: "/placeholder.svg?height=40&width=40",
+    avatar: "/assets/authors/profile.png",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const sampleReviews = [
     date: "৫ মার্চ, ২০২৪",
     comment:
       "খুব ভালো বই, তবে কিছু জায়গায় আরও বিস্তারিত আলোচনা থাকলে ভালো হতো।",
-    avatar: "/placeholder.svg?height=40&width=40",
+    avatar: "/assets/authors/profile.png",
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const sampleReviews = [
     date: "২৮ ফেব্রুয়ারি, ২০২৪",
     comment:
       "এই বইটি আমার জীবনে অনেক পরিবর্তন এনেছে। লেখকের চিন্তাধারা অত্যন্ত গভীর এবং প্রেরণাদায়ক।",
-    avatar: "/placeholder.svg?height=40&width=40",
+    avatar: "/assets/authors/profile.png",
   },
 ];
 
@@ -75,7 +75,7 @@ export default function BookReviews({ bookId }: BookReviewsProps) {
         day: "numeric",
       }),
       comment,
-      avatar: "/placeholder.svg?height=40&width=40",
+      avatar: "/assets/authors/profile.png",
     };
 
     setReviews([newReview, ...reviews]);
