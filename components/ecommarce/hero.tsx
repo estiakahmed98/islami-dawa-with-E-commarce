@@ -11,24 +11,18 @@ const heroData = [
     image: "/assets/others/herobook1.jpg",
     title: "আপনার পছন্দের বই খুঁজুন",
     description: "হাজার হাজার বইয়ের মধ্যে থেকে আপনার পছন্দের বইটি খুঁজে নিন",
-    buttonText: "এখনই দেখুন",
-    buttonLink: "kitabghor/books/",
   },
   {
     id: 2,
     image: "/assets/others/herobook2.jpg",
     title: "নতুন প্রকাশিত বইসমূহ",
     description: "সর্বশেষ প্রকাশিত বইগুলি দেখুন এবং আপনার সংগ্রহে যোগ করুন",
-    buttonText: "নতুন বই দেখুন",
-    buttonLink: "/new-books",
   },
   {
     id: 3,
     image: "/assets/others/herobook3.jpg",
     title: "বিশেষ অফার",
     description: "সীমিত সময়ের জন্য বিশেষ মূল্যে বই কিনুন",
-    buttonText: "অফার দেখুন",
-    buttonLink: "/offers",
   },
 ];
 
@@ -65,13 +59,10 @@ export default function Hero() {
           <div className="absolute inset-0 bg-black/40 flex items-center">
             <div className="container mx-auto px-4">
               <div className="max-w-xl text-white">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                <h1 className="text-4xl md:text-5xl mt-32 font-bold mb-4">
                   {hero.title}
                 </h1>
                 <p className="text-lg mb-6">{hero.description}</p>
-                <Link href={hero.buttonLink}>
-                  <Button size="lg">{hero.buttonText}</Button>
-                </Link>
               </div>
             </div>
           </div>
