@@ -68,7 +68,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/hindu/1.jpg",
     pdf: "/assets/others/pdf/খ্রিস্টানদেরপ প্রশ্ন মুসলমানদের উত্তর ফাইনাল.pdf",
-    modelUrl: "/assets/HilfulFuzul/hindu/1.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 2,
@@ -84,7 +84,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/hindu/4.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/hindu/4.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 3,
@@ -100,7 +100,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/hindu/13.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/hindu/13.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 4,
@@ -116,7 +116,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/hindu/40.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/hindu/40.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
 
   // Khristian
@@ -134,7 +134,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/chistian/2.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/chistian/2.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 6,
@@ -150,7 +150,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/chistian/22.jpg",
     pdf: "/assets/others/pdf/খ্রিস্টানভাইদের প্রতি জিজ্ঞাসা.pdf",
-    modelUrl: "/assets/HilfulFuzul/chistian/22.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 7,
@@ -166,7 +166,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/chistian/27.jpg",
     pdf: "/assets/others/pdf/বড়দিনের উপহার.pdf",
-    modelUrl: "/assets/HilfulFuzul/chistian/27.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 8,
@@ -182,7 +182,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/chistian/28.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/chistian/28.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 9,
@@ -198,7 +198,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/chistian/33.jpg",
     pdf: "/assets/others/pdf/খ্রিস্টানভাইদের প্রতি জিজ্ঞাসা.pdf",
-    modelUrl: "/assets/HilfulFuzul/chistian/33.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 10,
@@ -214,7 +214,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/chistian/35.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/chistian/35.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 11,
@@ -231,7 +231,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/chistian/36.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/chistian/36.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 12,
@@ -247,7 +247,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/chistian/38.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/chistian/38.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
 
   // Attojiboni
@@ -265,7 +265,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/attojiboni/26.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/attojiboni/26.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 14,
@@ -281,7 +281,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/attojiboni/32.jpg",
     pdf: "/assets/others/pdf/ত্রিশ হাজার খ্রিস্টানের গুরু যেভাবে দ্বীনের মুবাল্লিগ.pdf",
-    modelUrl: "/assets/HilfulFuzul/attojiboni/32.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
 
   // Daoat o Dayi
@@ -299,7 +299,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/daoat and dayi/5.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/daoat and dayi/5.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 16,
@@ -315,7 +315,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/daoat and dayi/6.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/daoat and dayi/6.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 17,
@@ -331,7 +331,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/daoat and dayi/9.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/daoat and dayi/9.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 18,
@@ -347,7 +347,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/daoat and dayi/11.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/daoat and dayi/11.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 19,
@@ -363,7 +363,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/daoat and dayi/19.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/daoat and dayi/19.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 20,
@@ -379,7 +379,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/daoat and dayi/21.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/daoat and dayi/21.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 21,
@@ -395,7 +395,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/daoat and dayi/29.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/daoat and dayi/29.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 22,
@@ -411,7 +411,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/daoat and dayi/30.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/daoat and dayi/30.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
 
   // Islam and Hedayet
@@ -429,7 +429,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/islam and hedayet/3.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/islam and hedayet/3.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 24,
@@ -445,7 +445,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/islam and hedayet/14.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/islam and hedayet/14.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 25,
@@ -461,7 +461,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/islam and hedayet/17.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/islam and hedayet/17.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 26,
@@ -477,7 +477,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/islam and hedayet/18.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/islam and hedayet/18.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 27,
@@ -493,7 +493,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/islam and hedayet/20.jpg",
     pdf: "/assets/others/pdf/হক আদায় .pdf",
-    modelUrl: "/assets/HilfulFuzul/islam and hedayet/20.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 28,
@@ -509,7 +509,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/islam and hedayet/24.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/islam and hedayet/24.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 29,
@@ -525,7 +525,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/islam and hedayet/25.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/islam and hedayet/25.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 30,
@@ -541,7 +541,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/islam and hedayet/34.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/islam and hedayet/34.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 31,
@@ -557,7 +557,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/islam and hedayet/37.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/islam and hedayet/37.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
 
   // Maolana
@@ -575,7 +575,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/maolana/7.jpg",
     pdf: "/assets/others/pdf/সহযোগী হও, প্রতিপক্ষ হয়ো না .pdf",
-    modelUrl: "/assets/HilfulFuzul/maolana/7.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 33,
@@ -591,7 +591,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/maolana/8.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/maolana/8.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 34,
@@ -607,7 +607,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/maolana/12.jpg",
     pdf: "/assets/others/pdf/হাদিয়ায়ে দাওয়াত.pdf",
-    modelUrl: "/assets/HilfulFuzul/maolana/12.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 35,
@@ -623,7 +623,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/maolana/15.jpg",
     pdf: "/assets/others/pdf/আলোর পথে ( সিরিজ -৪) - Copy.pdf",
-    modelUrl: "/assets/HilfulFuzul/maolana/15.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 36,
@@ -639,7 +639,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/maolana/23.jpg",
     pdf: "/assets/others/pdf/আপনার সেবায় আপনার আমানাত.pdf",
-    modelUrl: "/assets/HilfulFuzul/maolana/23.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
   {
     id: 37,
@@ -655,7 +655,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/maolana/31.jpg",
     pdf: "/assets/others/pdf/নবীজীর আদর্শ আমাদের জীবন বাস্তবতা.pdf",
-    modelUrl: "/assets/HilfulFuzul/maolana/31.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
 
   // Ritiniti
@@ -673,7 +673,7 @@ export const products = [
     available: true,
     image: "/assets/HilfulFuzul/ritiniti/16.jpg",
     pdf: "/assets/others/pdf/বাংলা নববর্ষ অজানা বৈশাখ.pdf",
-    modelUrl: "/assets/HilfulFuzul/ritiniti/16.jpg",
+    modelUrl: "/assets/3dmodel/1.glb",
   },
 ];
 
